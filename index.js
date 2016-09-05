@@ -24,7 +24,7 @@ function start(executable, opts, cb){
                  , opts.uri
                  ].filter(Boolean)
 
-    cb(spawn(executable, args, { env }))
+    cb(null, spawn(executable, args, { env }))
 }
 
 function test(opts, cb){
@@ -37,7 +37,10 @@ function test(opts, cb){
                     start(f.path, opts, cb)
                     return true
                 } catch (e) {
-                    if ( DEBUG ) console.error('failed: ', f.path)
+                    if ( DEBUG ) {
+                        console.error('failed: ', f.path)
+                        console.error(typeof e)
+                    }
                     return false
                 }
             })
