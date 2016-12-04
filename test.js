@@ -17,18 +17,23 @@ server.listen(0, 'localhost', () => {
 })
 
 test('local static server', function(t){
-    t.plan(1)
+    t.plan(2)
     takeAsync(ch, (str) => {
         const port = server.address().port
-        wc({uri: 'http://localhost:'+ port }, function(ps){
+        wc({uri: 'http://localhost:'+ port }, function(err, ps){
+            t.notOk(err)
             ps.stderr.setEncoding('utf8')
             ps.stderr.on('data', (data) => {
                 console.log('err', data);
             });
             t.ok('request received')
-            server.close()
-            ps.kill()
-            t.end()
+            
+            setTimeout(() => {
+                server.close()
+                ps.kill()
+
+                t.end()
+            }, 5000)
         })
     })
 })
