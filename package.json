@@ -10,12 +10,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "js-csp": "^0.6.5",
-    "through2": "^2.0.1",
-    "win-detect-browsers": "^2.1.0",
-    "winreg": "^1.2.2"
+    "win-detect-browsers": "^2.1.0"
   },
   "devDependencies": {
+    "js-csp": "^0.6.5",
     "tape": "^4.6.0"
   }
 }
