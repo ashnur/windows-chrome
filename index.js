@@ -39,7 +39,7 @@ function test(opts, cb){
                 } catch (e) {
                     if ( DEBUG ) {
                         console.error('failed: ', f.path)
-                        console.error(typeof e)
+                        console.error(e)
                     }
                     return false
                 }
