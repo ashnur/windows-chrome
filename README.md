@@ -1,3 +1,4 @@
 # windows-chrome
 
-I don't yet know how to do this well enough. Help is welcome in any form.
+At the moment uses [win-detect-browsers](https://npm.im/win-detect-browsers)
+
