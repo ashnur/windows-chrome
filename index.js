@@ -12,17 +12,23 @@ function start(executable, opts, cb){
           `${os.tmpdir()}\\${Math.random().toString(16).slice(2)}`
 
     const args = [ opts.proxy && `--proxy-server=${opts.proxy}`
-                 , `--user-data-dir=${dataDir}`
-                 , '--disable-restore-session-state'
-                 , '--no-default-browser-check'
-                 , '--start-maximized'
-                 , '--disable-default-apps'
-                 , '--disable-sync'
-                 , '--enable-fixed-layout'
-                 , '--no-first-run'
-                 , '--noerrdialogs'
-                 , opts.uri
-                 ].filter(Boolean)
+                , `--user-data-dir=${dataDir}`
+	    	    , '--no-sandbox',
+                , '--disable-restore-session-state'
+                , '--no-default-browser-check'
+                , '--start-maximized'
+                , '--disable-default-apps'
+                , '--disable-sync'
+                , '--enable-fixed-layout'
+                , '--no-first-run'
+                , '--noerrdialogs'
+                , '--headless'
+                , '--disable-gpu'
+	            , '--remote-debugging-port=9222' 
+                , opts.uri
+                ].filter(Boolean)
+
+	console.log(args)
 
     cb(null, spawn(executable, args, { env }))
 }
