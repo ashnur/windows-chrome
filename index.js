@@ -24,11 +24,9 @@ function start(executable, opts, cb){
                 , '--noerrdialogs'
                 , '--headless'
                 , '--disable-gpu'
-	            , '--remote-debugging-port=9222' 
+	            , '--remote-debugging-port=9222'
                 , opts.uri
                 ].filter(Boolean)
-
-	console.log(args)
 
     cb(null, spawn(executable, args, { env }))
 }
