@@ -18,6 +18,6 @@
   },
   "devDependencies": {
     "js-csp": "^0.6.5",
-    "tape": "^4.6.0"
+    "tape": "^4.11.0"
   }
 }
